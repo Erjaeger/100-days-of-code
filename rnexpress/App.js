@@ -1,8 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { createDrawerNavigator, createAppContainer } from "react-navigation";
+import IndexExercicesScreen from './screens/exercices/indexExercices';
+import IndexLessonsScreen from './screens/lessons/indexLessons';
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+  }
   render(){
     return(
       <View style={{flex:1, alignItems:"center", justifyContent:"center"}}>
@@ -11,20 +16,11 @@ class HomeScreen extends React.Component {
     }
   }
 
-  class DetailsScreen extends React.Component {
-    render(){
-      return (
-        <View style={{ flex:1, alignItems:"center", justifyContent:"center"}}>
-        <Text>Details Screen</Text>
-        </View>
-      )
-    }
-  }
-
-  const AppNavigator = createStackNavigator(
+  const AppNavigator = createDrawerNavigator(
     {
       Home: HomeScreen,
-      Details: DetailsScreen,
+      Lessons: IndexLessonsScreen,
+      Exercices: IndexExercicesScreen,
     },
     {
       initialRouteName: "Home"
