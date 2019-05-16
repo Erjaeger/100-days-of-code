@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import IndexExercicesScreen from './screens/exercices/indexExercices';
 import IndexLessonsScreen from './screens/lessons/indexLessons';
+import Opacity from './screens/exercices/opacity/opacity'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -21,6 +22,7 @@ class HomeScreen extends React.Component {
       Home: HomeScreen,
       Lessons: IndexLessonsScreen,
       Exercices: IndexExercicesScreen,
+//      Opacity: Opacity
     },
     {
       initialRouteName: "Home"

@@ -8,3 +8,21 @@
 
 **Link(s) to work**
 1. [React Native Navigation](https://reactnavigation.org/docs/en/hello-react-navigation.html)
+
+### Day 2: May 14, Thuesday
+
+**Today's Progress**: Some problem with Expo, add the differents navigators
+
+**Thoughts** Good update, still need work on design
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnavigation.org/docs/en/hello-react-navigation.html)
+
+### Day 3: May 15, Wednesday
+
+**Today's Progress**: Some problem with Expo, start the animations lessons. Made the opacity lesson and exercice.
+
+**Thoughts** Good day, start working on animations !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)

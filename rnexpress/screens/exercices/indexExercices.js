@@ -1,6 +1,6 @@
 import { createStackNavigator } from "react-navigation";
 import Home from './home'
-import Opacity from './opacity'
+import Opacity from './opacity/opacity'
 
 export default createStackNavigator({
     Home,
