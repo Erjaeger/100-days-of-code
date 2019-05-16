@@ -1,39 +1,35 @@
 import React from 'react';
 import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 
-export default class OpacityClass extends React.Component {
+export default class AbsoluteClass extends React.Component {
   static navigationOptions ={
-    title: "Opacity Lesson"
+    title: "Absolute Lesson"
   }
 
   constructor(props){
     super(props);
     this.state = {
-      animation: new Animated.Value(1)
+      animation: new Animated.Value(50)
     }
   }
 
   startAnimation = () => {
     Animated.timing(this.state.animation, {
-      toValue: 0,
-      duration: 350
-    }).start(() => {
-      Animated.timing(this.state.animation, {
-        toValue: 1,
-        duration: 350
-      }).start()
-    });
+      toValue: 200,
+      duration: 1500,
+    }).start();
   }
 
   render(){
-    const animatedStyles = {
-      opacity: this.state.animation
+    const animatedStyle = {
+      top: this.state.animation,
+      left: this.state.animation,
     }
 
     return(
       <View style={styles.container}>
         <TouchableWithoutFeedback  onPress={this.startAnimation}>
-          <Animated.View style={[styles.box, animatedStyles]}/>
+          <Animated.View style={[styles.box, animatedStyle]}/>
         </TouchableWithoutFeedback>
       </View>);
   }
@@ -49,6 +45,7 @@ const styles = StyleSheet.create({
   box: {
     height: 150,
     width: 150,
+    position:'absolute',
     backgroundColor: "#851E3E"
   }
 })

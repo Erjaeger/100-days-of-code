@@ -1,9 +1,9 @@
 import React from 'react';
 import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 
-export default class OpacityClass extends React.Component {
+export default class ScaleClass extends React.Component {
   static navigationOptions ={
-    title: "Opacity Lesson"
+    title: "Scale Lesson"
   }
 
   constructor(props){
@@ -15,25 +15,27 @@ export default class OpacityClass extends React.Component {
 
   startAnimation = () => {
     Animated.timing(this.state.animation, {
-      toValue: 0,
-      duration: 350
-    }).start(() => {
-      Animated.timing(this.state.animation, {
-        toValue: 1,
-        duration: 350
-      }).start()
+      toValue: 2,
+      duration: 1500,
+      useNativeDriver: true
+    }).start(()=>{
+      this.state.animation.setValue(1)
     });
   }
 
   render(){
-    const animatedStyles = {
-      opacity: this.state.animation
+    const animatedStyle = {
+      transform : [
+        {
+          scale : this.state.animation
+        }
+      ]
     }
 
     return(
       <View style={styles.container}>
         <TouchableWithoutFeedback  onPress={this.startAnimation}>
-          <Animated.View style={[styles.box, animatedStyles]}/>
+          <Animated.View style={[styles.box, animatedStyle]}/>
         </TouchableWithoutFeedback>
       </View>);
   }

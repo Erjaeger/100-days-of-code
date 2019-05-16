@@ -1,39 +1,41 @@
 import React from 'react';
 import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 
-export default class OpacityClass extends React.Component {
+export default class TranslateClass extends React.Component {
   static navigationOptions ={
-    title: "Opacity Lesson"
+    title: "Translate Lesson"
   }
 
   constructor(props){
     super(props);
     this.state = {
-      animation: new Animated.Value(1)
+      animation: new Animated.Value(0)
     }
   }
 
   startAnimation = () => {
     Animated.timing(this.state.animation, {
-      toValue: 0,
-      duration: 350
+      toValue: 300,
+      duration: 1500,
+      useNativeDriver: true
     }).start(() => {
-      Animated.timing(this.state.animation, {
-        toValue: 1,
-        duration: 350
-      }).start()
-    });
+      this.state.animation.setValue(0)
+    })
   }
 
   render(){
-    const animatedStyles = {
-      opacity: this.state.animation
+    const animatedStyle = {
+        transform: [
+          {
+            translateY: this.state.animation
+          }
+        ]
     }
 
     return(
       <View style={styles.container}>
         <TouchableWithoutFeedback  onPress={this.startAnimation}>
-          <Animated.View style={[styles.box, animatedStyles]}/>
+          <Animated.View style={[styles.box, animatedStyle]}/>
         </TouchableWithoutFeedback>
       </View>);
   }

@@ -26,3 +26,12 @@
 
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
+
+### Day 4: May 14, Thursday
+
+**Today's Progress**: Everything runs great ! Did 4 tutorial, Translate, Scale, Width/Height, Absolute Position
+
+**Thoughts** Really interesting, it's the basics, but it's important !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)

@@ -9,7 +9,21 @@ export default class IndexLessonsScreen extends React.Component {
   render(){
     return(
       <ScrollView style={{flex:1}}>
-        <Button title={"Opacity"} style={{margin:10}} onPress={()=>{this.props.navigation.navigate('Opacity')}}/>
+        <View style={{marginTop:10}}>
+          <Button title={"Opacity"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Opacity')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"Translate"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Translate')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"Scale"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Scale')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"WHValue"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('WHValue')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"Absolute"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Absolute')}}/>
+        </View>
       </ScrollView>);
   }
 }
