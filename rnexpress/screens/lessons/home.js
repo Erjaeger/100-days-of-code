@@ -24,6 +24,15 @@ export default class IndexLessonsScreen extends React.Component {
         <View style={{marginTop:10}}>
           <Button title={"Absolute"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Absolute')}}/>
         </View>
+        <View style={{marginTop:10}}>
+          <Button title={"Interpolation"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Interpolation')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"Rotation"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Rotation')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"WHPercentage"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('WHPercentage')}}/>
+        </View>
       </ScrollView>);
   }
 }

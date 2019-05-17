@@ -35,3 +35,12 @@
 
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
+
+### Day 5: May 15, Friday
+
+**Today's Progress**: Finished the Animated Properties ! Next Chapter easing and Animated.Value functions.
+
+**Thoughts** Good knowledge of how to setup a simple animation !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
