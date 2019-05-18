@@ -44,3 +44,13 @@
 
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
+
+### Day 6: May 16, Saturday
+
+**Today's Progress**: Re-installation of Android Studio + Emulator. Followed the Animation.Value functions. How to declare animation with two values and how to access them for transform and position
+
+**Thoughts** Good progress, not really motivate today until I start having some result !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+

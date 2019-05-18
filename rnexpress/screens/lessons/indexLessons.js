@@ -8,6 +8,8 @@ import Absolute from './absolute'
 import Interpolation from './interpolation'
 import Rotation from './rotation'
 import WHPercentage from './WHPercentage'
+import Easing from './easing'
+import ValueFunct from './valuefunct'
 
 export default createStackNavigator({
     Home,
@@ -18,7 +20,9 @@ export default createStackNavigator({
     Absolute,
     Interpolation,
     Rotation,
-    WHPercentage
+    WHPercentage,
+    Easing,
+    ValueFunct
 },
 {
   initialRouteName: "Home"
