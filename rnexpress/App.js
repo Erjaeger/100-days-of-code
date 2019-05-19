@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import IndexExercicesScreen from './screens/exercices/indexExercices';
 import IndexLessonsScreen from './screens/lessons/indexLessons';
-import ValueFunct from './screens/lessons/valuefunct'
+import AnimatedFunctions from './screens/lessons/animatedfunctions'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -22,11 +22,11 @@ class HomeScreen extends React.Component {
       Home: HomeScreen,
       Lessons: IndexLessonsScreen,
       Exercices: IndexExercicesScreen,
-      ValueFunct
+      AnimatedFunctions
     },
     {
       //initialRouteName: "Home"
-      initialRouteName: "ValueFunct"
+      initialRouteName: "AnimatedFunctions"
     }
   );
 

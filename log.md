@@ -54,3 +54,13 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 7: May 17, Sunday
+
+**Today's Progress**: Learned to use spring, loop, and event with interpolation ! and scroll event.
+
+**Thoughts** Good progress, and happy with the visual feedback of the scroll changing background !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+

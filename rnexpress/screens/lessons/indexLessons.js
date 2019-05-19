@@ -10,6 +10,7 @@ import Rotation from './rotation'
 import WHPercentage from './WHPercentage'
 import Easing from './easing'
 import ValueFunct from './valuefunct'
+import AnimatedFunctions from './animatedfunctions'
 
 export default createStackNavigator({
     Home,
@@ -22,7 +23,8 @@ export default createStackNavigator({
     Rotation,
     WHPercentage,
     Easing,
-    ValueFunct
+    ValueFunct,
+    AnimatedFunctions
 },
 {
   initialRouteName: "Home"
