@@ -7,7 +7,12 @@ export default class IndexLessonsScreen extends React.Component {
     return(
       <ScrollView style={{flex:1}}>
         <Text>Index Exercices Screen</Text>
-        <Button title={"Opacity"} onPress={()=>{this.props.navigation.navigate('Opacity')}}/>
+        <View style={{marginTop:10}}>
+          <Button title={"Opacity"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('Opacity')}}/>
+        </View>
+        <View style={{marginTop:10}}>
+          <Button title={"DragCardGame"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('DragCardGame')}}/>
+        </View>
       </ScrollView>);
   }
 }

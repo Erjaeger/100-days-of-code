@@ -11,6 +11,7 @@ import WHPercentage from './WHPercentage'
 import Easing from './easing'
 import ValueFunct from './valuefunct'
 import AnimatedFunctions from './animatedfunctions'
+import DragCard from './dragcard'
 
 export default createStackNavigator({
     Home,
@@ -24,7 +25,8 @@ export default createStackNavigator({
     WHPercentage,
     Easing,
     ValueFunct,
-    AnimatedFunctions
+    AnimatedFunctions,
+    DragCard
 },
 {
   initialRouteName: "Home"

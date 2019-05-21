@@ -63,4 +63,26 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 8: May 18, Monday
+
+**Today's Progress**: Finished to learn the animated functions
+
+**Thoughts** Beginning of the second week ! Good result for the first one.
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+### Day 9: May 19, Tuesday
+
+**Today's Progress**: Start the base for my mini game. Throwing some shapes on the screen and bouncing on the border !
+
+**Thoughts** Good to create something and not just following a tutorial
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+
+
+
+
 
