@@ -81,6 +81,16 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 10: May 20, Wednesday
+
+**Today's Progress**: Try to improve the drag and drog, but still have some problems on release.
+
+**Thoughts** Some problems but it's challenging! 
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+
 
 
 

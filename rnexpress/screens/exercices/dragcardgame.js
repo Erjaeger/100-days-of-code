@@ -3,11 +3,18 @@ import { Animated, TouchableWithoutFeedback, PanResponder, StyleSheet, StatusBar
 
 const { width, height } = Dimensions.get('window');
 
+
+
 const BLOCK_SIZE = 50;
 const LIMIT_WIDTH_MIN = -(width/2)+BLOCK_SIZE/2;
 const LIMIT_WIDTH_MAX = width/2-BLOCK_SIZE/2;
-const LIMIT_HEIGHT_MIN = -(width/2)+BLOCK_SIZE/2;
-const LIMIT_HEIGHT_MAX = width/2-BLOCK_SIZE/2;
+const LIMIT_HEIGHT_MIN = -(height/2)+BLOCK_SIZE/2;
+const LIMIT_HEIGHT_MAX = height/2-BLOCK_SIZE/2;
+
+
+console.log(width, height);
+console.log(LIMIT_WIDTH_MIN, LIMIT_WIDTH_MAX, LIMIT_HEIGHT_MIN, LIMIT_HEIGHT_MAX)
+
 
 export default class DragCardGameClass extends React.Component {
   static navigationOptions ={
@@ -20,30 +27,50 @@ export default class DragCardGameClass extends React.Component {
         animation: new Animated.ValueXY()
     }
 
+
+    let triggeredLimitX = false
+    let triggeredLimitY = false
+
     this._panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: (evt, gestureState) => true,
-        onMoveShouldSetPanResponder: (evt, gestureState)=>true,
-        onPanResponderGrant: () => {
-          this.state.animation.extractOffset();
-        },
-        onPanResponderMove: Animated.event([null, {
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderGrant : ()=>{
+        this.state.animation.extractOffset();
+      },
+      onPanResponderMove: Animated.event([
+        null, {
           dx: this.state.animation.x,
           dy: this.state.animation.y
         }]),
         onPanResponderRelease: (evt, gestureState)=>{
+          this.state.animation.flattenOffset()
           Animated.decay(this.state.animation, {
-              velocity: {x:gestureState.vx, y:gestureState.vy},
-              deceleration: 0.997,
-              useNativeDriver: true
-          }).start();
-        }
+            velocity: {x:gestureState.vx, y:gestureState.vy},
+            deceleration: 0.997,
+            useNativeDriver: true
+          }).start()
+      }
     })
   }
 
   componentDidMount = () => {
     this.state.animation.addListener((value) => {
-      if(value.x >= LIMIT_WIDTH_MAX || value.x <= LIMIT_WIDTH_MIN ){
-        Animated.decay(this.state.animation).stop();
+      if((value.x > LIMIT_WIDTH_MAX || value.x < LIMIT_WIDTH_MIN )&& !this.triggeredLimitX ){
+        
+        this.triggeredLimitX = true;
+        this.state.animation.stopAnimation(()=>{
+          this.state.animation.setValue({x:value.x > 0 ? LIMIT_WIDTH_MAX : LIMIT_WIDTH_MIN, y:value.y});
+          this.triggeredLimitX = false
+        });
+      }
+
+      if((value.y > LIMIT_HEIGHT_MAX || value.y < LIMIT_HEIGHT_MIN )&& !this.triggeredLimitY){
+        
+        this.triggeredLimitY = true;
+        this.state.animation.stopAnimation(()=>{
+          this.state.animation.setValue({x: value.x, y:value.y > 0 ? LIMIT_HEIGHT_MAX : LIMIT_HEIGHT_MIN});
+          this.triggeredLimitY = false
+        });
       }
     })
   }
@@ -53,27 +80,20 @@ export default class DragCardGameClass extends React.Component {
   render(){
     
 
-    const transformXInterpolated = this.state.animation.x.interpolate({
-      inputRange: [ LIMIT_WIDTH_MIN, LIMIT_WIDTH_MAX ],
-      outputRange: [ LIMIT_HEIGHT_MIN, LIMIT_HEIGHT_MAX ],
-      extrapolate: 'clamp'
-    })
+    // const transformXInterpolated = this.state.animation.x.interpolate({
+    //   inputRange: [ LIMIT_WIDTH_MIN, LIMIT_WIDTH_MAX ],
+    //   outputRange: [ LIMIT_HEIGHT_MIN, LIMIT_HEIGHT_MAX ],
+    //   extrapolate: 'clamp'
+    // })
 
-    const transformYInterpolated = this.state.animation.y.interpolate({
-      inputRange: [-(height/2)+BLOCK_SIZE/2, height/2-BLOCK_SIZE/2],
-      outputRange: [-(height/2)+BLOCK_SIZE/2, height/2-BLOCK_SIZE/2],
-      extrapolate: 'clamp'
-    })
+    // const transformYInterpolated = this.state.animation.y.interpolate({
+    //   inputRange: [ LIMIT_WIDTH_MIN, LIMIT_WIDTH_MAX ],
+    //   outputRange: [ LIMIT_HEIGHT_MIN, LIMIT_HEIGHT_MAX ],
+    //   extrapolate: 'clamp'
+    // })
 
     const animatedBoxStyle={
-        transform: [
-          {
-            translateX: transformXInterpolated,
-          },
-          {
-            translateY: transformYInterpolated
-          }
-        ]
+        transform: this.state.animation.getTranslateTransform()
     }
 
     return(
