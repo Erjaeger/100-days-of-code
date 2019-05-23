@@ -90,6 +90,14 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 11: May 22, Thursday
+
+**Today's Progress**: Start to work on the mini game interface ! Still have some buggy effects on the animated decay.
+
+**Thoughts** Very happy to work on a little project ! 
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
 
 
 
