@@ -4,7 +4,7 @@ import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import IndexExercicesScreen from './screens/exercices/indexExercices';
 import IndexLessonsScreen from './screens/lessons/indexLessons';
 import AnimatedFunctions from './screens/lessons/animatedfunctions';
-import DragCardGame from './screens/exercices/dragcardgame';
+import CombiningAnimations from './screens/lessons/combininganimations';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -23,11 +23,11 @@ class HomeScreen extends React.Component {
       Home: HomeScreen,
       Lessons: IndexLessonsScreen,
       Exercices: IndexExercicesScreen,
-      DragCardGame
+      CombiningAnimations
     },
     {
       //initialRouteName: "Home"
-      initialRouteName: "DragCardGame"
+      initialRouteName: "CombiningAnimations"
     }
   );
 

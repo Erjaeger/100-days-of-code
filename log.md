@@ -90,7 +90,7 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
-### Day 11: May 22, Thursday
+### Day 11: May 21, Thursday
 
 **Today's Progress**: Start to work on the mini game interface ! Still have some buggy effects on the animated decay.
 
@@ -99,6 +99,23 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 12: May 27, Monday
+
+**Today's Progress**: Start to work on the mini game interface ! Still have some buggy effects on the animated decay.
+
+**Thoughts** Good to continue after some day off! 
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+### Day 13: May 28, Thuesday
+
+**Today's Progress**: Learn how to combine multiple animations.
+
+**Thoughts** Not a long session, but still a session !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
 
 
 

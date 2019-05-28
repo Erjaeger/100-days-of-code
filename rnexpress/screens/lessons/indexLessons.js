@@ -12,6 +12,7 @@ import Easing from './easing'
 import ValueFunct from './valuefunct'
 import AnimatedFunctions from './animatedfunctions'
 import DragCard from './dragcard'
+import CombiningAnimations from './combininganimations'
 
 export default createStackNavigator({
     Home,
@@ -26,7 +27,8 @@ export default createStackNavigator({
     Easing,
     ValueFunct,
     AnimatedFunctions,
-    DragCard
+    DragCard,
+    CombiningAnimations
 },
 {
   initialRouteName: "Home"

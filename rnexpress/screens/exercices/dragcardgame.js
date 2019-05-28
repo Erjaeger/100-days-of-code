@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated, TouchableWithoutFeedback, PanResponder, StyleSheet, StatusBar, View, Text, Dimensions } from 'react-native';
+import { Animated, Easing, TouchableWithoutFeedback, PanResponder, StyleSheet, StatusBar, View, Text, Dimensions } from 'react-native';
+import EasingClass from '../lessons/easing';
 
 const { width, height } = Dimensions.get('window');
 
@@ -20,7 +21,9 @@ export default class DragCardGameClass extends React.Component {
     super(props);
     this.state = {
         animation: new Animated.ValueXY(),
-        score: 0
+        animationScale: new Animated.Value(1),
+        score: 0,
+        lastScore:"300"
     }
 
 
@@ -28,6 +31,7 @@ export default class DragCardGameClass extends React.Component {
     let triggeredLimitY = false
     
     this.tempValue={x: 0, y:0};
+    this.scoreAdded = false;
 
 
     this.state.animation.addListener((value) => {
@@ -51,12 +55,27 @@ export default class DragCardGameClass extends React.Component {
           this.triggeredLimitY = false
         });
       }
-    })
+
+
+      if(value.y > LIMIT_HEIGHT_MIN && value.y < LIMIT_HEIGHT_MIN + BLOCK_SIZE && !this.scoreAdded){
+        this.scoreAdded = true;
+        if(value.x > LIMIT_WIDTH_MIN && value.x < LIMIT_WIDTH_MIN + ((40*width)/100) || value.x < LIMIT_WIDTH_MAX && value.x > LIMIT_WIDTH_MAX - ((40*width)/100)){
+          this.setState({score: this.state.score + 100}, () => {
+            this.resetBlock();
+          });
+        } else {
+          this.setState({score: this.state.score + 300}, ()=>{
+            this.resetBlock();
+          });
+        }
+      }
+    });
 
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant : ()=>{
+        this.scoreAdded = false;
         this.state.animation.setOffset(this.tempValue);
         this.state.animation.setValue({x:0, y:0});
       },
@@ -82,17 +101,41 @@ export default class DragCardGameClass extends React.Component {
     
   }
 
-
+  resetBlock= () => {
+    Animated.timing(this.state.animationScale, {
+      toValue: 0,
+      duration: 1000,
+      easing: Easing.ease,
+      useNativeDriver: true
+    }).start(()=>{
+      this.state.animation.setValue({x:0, y:0});
+      Animated.timing(this.state.animationScale, {
+        toValue: 1,
+        duration: 500,
+        easing: Easing.ease,
+        useNativeDriver: true
+      }).start()
+    });
+  }
 
   render(){
     const animatedBoxStyle={
-        transform: this.state.animation.getTranslateTransform()
+      transform: [
+        {
+          scale: this.state.animationScale,
+        },
+        {
+          translateX: this.state.animation.x
+        },
+        {
+          translateY: this.state.animation.y
+        }
+      ]
     }
 
     return(
       <View style={styles.container}>
         <StatusBar hidden={true} />
-
         <View style={styles.pointLine}>
           <View style={styles.pointBox}>
             <Text>100</Text>
@@ -123,25 +166,26 @@ const styles = StyleSheet.create({
   pointLine:{
     height:50,
     width,
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#f4f4f8",
     alignSelf:'flex-start',
     flexDirection:'row'
   },
   pointBox: {
     borderWidth: 1,
-    borderColor: "#C4C4C4",
-    flex:2,
+    backgroundColor: "#f4f4f8",
+    borderColor: "#e6e6ea",
+    width:'40%',
     alignItems:'center',
     justifyContent:'center'
   },
   littleBox:{
-    flex:1
+    width:'20%'
   },
   container: {
     flex:1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#061E3E",
+    backgroundColor: "#f4f4f8",
     height,
     width
   },
@@ -150,10 +194,11 @@ const styles = StyleSheet.create({
     backgroundColor:'tomato'
   },
   box: {
-    height: 50,
-    width: 50,
-    backgroundColor: "#851E3E",
-    position:'relative'
+    height: BLOCK_SIZE,
+    width: BLOCK_SIZE,
+    backgroundColor: "#2ab7ca",
+    position:'relative',
+    borderRadius: BLOCK_SIZE/2
   },
   textScore: {
     marginLeft:10
