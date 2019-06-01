@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View, Easing } from 're
 export default class EasingClass extends React.Component {
   static navigationOptions ={
     title: "Easing Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -19,7 +19,7 @@ export default class EasingClass extends React.Component {
           duration: 500,
           useNativeDriver: true,
       }).start()
-  }
+  };
 
 
   render(){
@@ -29,7 +29,7 @@ export default class EasingClass extends React.Component {
                 translateX: this.state.animation
             }
         ]
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: "#851E3E"
   }
-})
+});

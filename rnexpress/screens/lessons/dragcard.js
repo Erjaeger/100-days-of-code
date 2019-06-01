@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, PanResponder, StyleSheet, View } fr
 export default class DragCardClass extends React.Component {
   static navigationOptions ={
     title: "Drag Card Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
     width: 50,
     backgroundColor: "#851E3E"
   }
-})
+});

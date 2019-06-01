@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View, Text } from 'reac
 export default class WHValueClass extends React.Component {
   static navigationOptions ={
     title: "WHValue Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -18,13 +18,13 @@ export default class WHValueClass extends React.Component {
       toValue: 100,
       duration: 1500
     }).start();
-  }
+  };
 
   render(){
     const animatedStyle = {
       width: this.state.animation,
       height: this.state.animation
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#851E3E",
      overflow: "hidden"
   }
-})
+});

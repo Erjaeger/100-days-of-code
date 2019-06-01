@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class BaseClass extends React.Component {
   static navigationOptions ={
     title: "Base Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: "#851E3E"
   }
-})
+});

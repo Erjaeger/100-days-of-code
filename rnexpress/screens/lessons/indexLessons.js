@@ -13,6 +13,7 @@ import ValueFunct from './valuefunct'
 import AnimatedFunctions from './animatedfunctions'
 import DragCard from './dragcard'
 import CombiningAnimations from './combininganimations'
+import KittenCards from './kittencards'
 
 export default createStackNavigator({
     Home,
@@ -28,7 +29,8 @@ export default createStackNavigator({
     ValueFunct,
     AnimatedFunctions,
     DragCard,
-    CombiningAnimations
+    CombiningAnimations,
+    KittenCards
 },
 {
   initialRouteName: "Home"

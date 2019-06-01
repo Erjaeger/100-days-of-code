@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class InterpolationClass extends React.Component {
   static navigationOptions ={
     title: "Interpolation Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -23,26 +23,26 @@ export default class InterpolationClass extends React.Component {
               duration: 1500
           }).start()
       });
-  }
+  };
 
   render(){
       const boxInterpolation = this.state.animation.interpolate({
           inputRange: [0, 1],
           outputRange: ["hsla(341, 63%, 32%, 1)", "hsla(214, 82%, 13%, 1)"]
-      })
+      });
 
       const colorViewInterpolation = this.state.animation.interpolate({
           inputRange: [0, 1],
           outputRange: ["hsla(214, 82%, 13%, 1)", "hsla(341, 63%, 32%, 1)"]
-      })
+      });
 
       const boxAnimatedStyle={
         backgroundColor: boxInterpolation
-      }
+      };
 
       const colorAnimatedStyle = {
         backgroundColor: colorViewInterpolation
-      }
+      };
 
     return(
       <Animated.View style={[styles.container, colorAnimatedStyle]}>
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
   }
-})
+});

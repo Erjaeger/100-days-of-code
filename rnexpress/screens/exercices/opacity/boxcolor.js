@@ -34,7 +34,7 @@ export default class BoxColor extends React.Component {
   render(){
     const animatedStyles = {
       opacity: this.state.animation
-    }
+    };
 
     return(
       <Animated.View style={[{height:this.props.height, width: this.props.width, backgroundColor:this.props.backgroundColor}, animatedStyles]}>
