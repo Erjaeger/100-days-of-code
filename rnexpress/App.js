@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import IndexExercicesScreen from './screens/exercices/indexExercices';
 import IndexLessonsScreen from './screens/lessons/indexLessons';
-import AnimatedFunctions from './screens/lessons/animatedfunctions';
-import CombiningAnimations from './screens/lessons/combininganimations';
+import PanResponder from './screens/lessons/panresponder';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -23,11 +22,11 @@ class HomeScreen extends React.Component {
       Home: HomeScreen,
       Lessons: IndexLessonsScreen,
       Exercices: IndexExercicesScreen,
-      CombiningAnimations
+      PanResponder
     },
     {
       //initialRouteName: "Home"
-      initialRouteName: "CombiningAnimations"
+      initialRouteName: "PanResponder"
     }
   );
 
