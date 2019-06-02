@@ -117,6 +117,15 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 17: June 2, Sunday
+
+**Today's Progress**: Working on a swipe card tutorial ! 
+
+**Thoughts** Forgot to log my sessions for the previous days, happy with how things are working !
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
 
 
 

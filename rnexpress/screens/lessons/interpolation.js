@@ -21,11 +21,10 @@ export default class InterpolationClass extends React.Component {
           toValue: 1,
           duration:1500
       }).start(()=>{
-          Animated.timing(this.state.animation, {
-              toValue: 0,
-              duration: 1500
-          }).start()
-      });
+        Animated.timing(this.state.animation, {
+            toValue: 0,
+            duration: 1500
+        }).start() }) ])
   };
 
   startAnimationExtra = () => {

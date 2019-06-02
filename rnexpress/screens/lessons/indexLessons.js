@@ -31,7 +31,7 @@ export default createStackNavigator({
     AnimatedFunctions,
     DragCard,
     CombiningAnimations,
-    PanResponder
+    PanResponder,
     KittenCards
 },
 {
