@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class AbsoluteClass extends React.Component {
   static navigationOptions ={
     title: "Absolute Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -18,13 +18,13 @@ export default class AbsoluteClass extends React.Component {
       toValue: 200,
       duration: 1500,
     }).start();
-  }
+  };
 
   render(){
     const animatedStyle = {
       top: this.state.animation,
       left: this.state.animation,
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
     position:'absolute',
     backgroundColor: "#851E3E"
   }
-})
+});

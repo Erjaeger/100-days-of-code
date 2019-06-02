@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View, Text } from 'reac
 export default class ValueFunctClass extends React.Component {
   static navigationOptions ={
     title: "ValueFunct Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -19,11 +19,11 @@ export default class ValueFunctClass extends React.Component {
       this.state.animationTransform.addListener((value) => {
         this.setState({textTransform : `Value X : ${value.x}`})
       })
-  }
+  };
 
   componentWillUnmount = () => {
       this.state.animationTransform.removeListener();
-  }
+  };
 
   startAnimationTransform = () => {
       Animated.timing(this.state.animationTransform, {
@@ -31,21 +31,21 @@ export default class ValueFunctClass extends React.Component {
           duration: 1500,
           useNativeDriver: true,
       }).start()
-  }
+  };
 
   startAnimationPosition = () => {
     Animated.timing(this.state.animationPosition, {
         toValue: 100,
         duration: 500,
     }).start()
-  }
+  };
 
   render(){
     const animatedStyleTransform = {
         transform: this.state.animationTransform.getTranslateTransform()
-    }
+    };
 
-    const animatedStylePosition = this.state.animationPosition.getLayout()
+    const animatedStylePosition = this.state.animationPosition.getLayout();
 
     return(
       <View style={styles.container}>
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: "#851E3E"
   }
-})
+});

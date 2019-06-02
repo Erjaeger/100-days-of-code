@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class OpacityClass extends React.Component {
   static navigationOptions ={
     title: "Opacity Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -23,12 +23,12 @@ export default class OpacityClass extends React.Component {
         duration: 350
       }).start()
     });
-  }
+  };
 
   render(){
     const animatedStyles = {
       opacity: this.state.animation
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: "#851E3E"
   }
-})
+});

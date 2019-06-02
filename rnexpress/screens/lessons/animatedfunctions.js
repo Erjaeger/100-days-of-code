@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default class AnimatedFunctionsClass extends React.Component {
   static navigationOptions ={
     title: "AnimatedFunctions Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -23,7 +23,7 @@ export default class AnimatedFunctionsClass extends React.Component {
     }).start(()=>{
         this.state.animation.setValue(0)
     });
-  }
+  };
 
   startAnimationSpring = (friction, tension) => {
       Animated.spring(this.state.animation, {
@@ -33,7 +33,7 @@ export default class AnimatedFunctionsClass extends React.Component {
           friction,
           tension
       }).start(()=>{this.state.animation.setValue(0)})
-  }
+  };
 
   startAnimationLoop = () => {
       Animated.loop(Animated.timing(this.state.animation, {
@@ -41,7 +41,7 @@ export default class AnimatedFunctionsClass extends React.Component {
         duration: 1500,
         useNativeDriver: true
       })).start()
-  }
+  };
   
 
   render(){
@@ -51,12 +51,12 @@ export default class AnimatedFunctionsClass extends React.Component {
           translateX: this.state.animation
         }
       ]
-    }
+    };
 
     const animatedInterpolate = this.state.animation.interpolate({
         inputRange: [0, 150, 300],
         outputRange: [0, 300, 0]
-    })
+    });
 
     const animatedStyleInterpolate = {
         transform: [
@@ -64,16 +64,16 @@ export default class AnimatedFunctionsClass extends React.Component {
                 translateX: animatedInterpolate
             }
         ]
-    }
+    };
 
     const backgroundInterpolate = this.state.animationBackground.interpolate({
         inputRange: [0, 3000],
         outputRange: ["rgb(255,99,71)", "rgb(99, 71, 255)"]
-    })
+    });
 
     const backgroundStyle = {
         backgroundColor: backgroundInterpolate
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -131,4 +131,4 @@ const styles = StyleSheet.create({
     marginBottom:10,
     backgroundColor: "#851E3E"
   }
-})
+});

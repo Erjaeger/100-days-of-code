@@ -15,7 +15,7 @@ const LIMIT_HEIGHT_MAX = BLOCK_SIZE/2;
 export default class DragCardGameClass extends React.Component {
   static navigationOptions ={
     title: "DragCardGame Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -24,11 +24,11 @@ export default class DragCardGameClass extends React.Component {
         animationScale: new Animated.Value(1),
         score: 0,
         lastScore:"300"
-    }
+    };
 
 
-    let triggeredLimitX = false
-    let triggeredLimitY = false
+    let triggeredLimitX = false;
+    let triggeredLimitY = false;
     
     this.tempValue={x: 0, y:0};
     this.scoreAdded = false;
@@ -99,7 +99,7 @@ export default class DragCardGameClass extends React.Component {
 
   componentDidMount = () => {
     
-  }
+  };
 
   resetBlock= () => {
     Animated.timing(this.state.animationScale, {
@@ -116,7 +116,7 @@ export default class DragCardGameClass extends React.Component {
         useNativeDriver: true
       }).start()
     });
-  }
+  };
 
   render(){
     const animatedBoxStyle={
@@ -131,7 +131,7 @@ export default class DragCardGameClass extends React.Component {
           translateY: this.state.animation.y
         }
       ]
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -210,4 +210,4 @@ const styles = StyleSheet.create({
     alignItems:'flex-start',
     justifyContent:'center'
   }
-})
+});

@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class Rotation extends React.Component {
   static navigationOptions ={
     title: "Rotation Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -19,13 +19,13 @@ export default class Rotation extends React.Component {
         duration: 5000,
         useNativeDriver: true
     }).start()
-  }
+  };
 
   render(){
     const rotateInterpolate = this.state.animation.interpolate({
         inputRange: [0, 360],
         outputRange: ["0deg", "360deg"]
-    })
+    });
 
     const animatedStyles = {
         transform : [
@@ -33,7 +33,7 @@ export default class Rotation extends React.Component {
                 rotate: rotateInterpolate
             }
         ]
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: "#851E3E"
   }
-})
+});

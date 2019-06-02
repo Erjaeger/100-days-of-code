@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, Text, View } from 'reac
 export default class CombiningAnimationsClass extends React.Component {
   static navigationOptions ={
     title: "Combining Animations Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -36,7 +36,7 @@ export default class CombiningAnimationsClass extends React.Component {
             duration: 300,
         })
     ]).start();
-  }
+  };
 
   handlePressSeq = () => {
     Animated.sequence([
@@ -51,7 +51,7 @@ export default class CombiningAnimationsClass extends React.Component {
             duration: 300,
         })
     ]).start();
-  }
+  };
 
   handlePressStag = () => {
     Animated.stagger(1500,[
@@ -66,7 +66,7 @@ export default class CombiningAnimationsClass extends React.Component {
             duration: 300,
         })
     ]).start();
-  }
+  };
 
   handlePressDelay = () => {
     Animated.sequence([
@@ -82,14 +82,14 @@ export default class CombiningAnimationsClass extends React.Component {
             duration: 300,
         })
     ]).start();
-  }
+  };
 
 
   render(){
     const backgroundColorInterpolatePara = this.state.colorAnimationPara.interpolate({
         inputRange: [0, 1],
         outputRange: ["rgb(248, 177, 149)", "rgb(108, 91, 123)"]
-    })
+    });
 
     const boxStylePara= {
         transform: [
@@ -98,12 +98,12 @@ export default class CombiningAnimationsClass extends React.Component {
             }
         ],
         backgroundColor: backgroundColorInterpolatePara
-    }
+    };
 
     const backgroundColorInterpolateSeq = this.state.colorAnimationSeq.interpolate({
         inputRange: [0, 1],
         outputRange: ["rgb(248, 177, 149)", "rgb(108, 91, 123)"]
-    })
+    });
 
     const boxStyleSeq= {
         transform: [
@@ -112,12 +112,12 @@ export default class CombiningAnimationsClass extends React.Component {
             }
         ],
         backgroundColor: backgroundColorInterpolateSeq
-    }
+    };
 
     const backgroundColorInterpolateStag = this.state.colorAnimationStag.interpolate({
         inputRange: [0, 1],
         outputRange: ["rgb(248, 177, 149)", "rgb(108, 91, 123)"]
-    })
+    });
 
     const boxStyleStag= {
         transform: [
@@ -126,12 +126,12 @@ export default class CombiningAnimationsClass extends React.Component {
             }
         ],
         backgroundColor: backgroundColorInterpolateStag
-    }
+    };
 
     const backgroundColorInterpolateDelay = this.state.colorAnimationDelay.interpolate({
         inputRange: [0, 1],
         outputRange: ["rgb(248, 177, 149)", "rgb(108, 91, 123)"]
-    })
+    });
 
     const boxStyleDelay= {
         transform: [
@@ -140,7 +140,7 @@ export default class CombiningAnimationsClass extends React.Component {
             }
         ],
         backgroundColor: backgroundColorInterpolateDelay
-    }
+    };
 
 
     return(
@@ -187,4 +187,4 @@ const styles = StyleSheet.create({
       color: "white",
       fontWeight: "bold"
   }
-})
+});

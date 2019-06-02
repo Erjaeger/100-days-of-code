@@ -14,6 +14,7 @@ import AnimatedFunctions from './animatedfunctions'
 import DragCard from './dragcard'
 import CombiningAnimations from './combininganimations'
 import PanResponder from './panresponder'
+import KittenCards from './kittencards'
 
 export default createStackNavigator({
     Home,
@@ -31,6 +32,7 @@ export default createStackNavigator({
     DragCard,
     CombiningAnimations,
     PanResponder
+    KittenCards
 },
 {
   initialRouteName: "Home"

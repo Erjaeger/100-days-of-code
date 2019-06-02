@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class InterpolationClass extends React.Component {
   static navigationOptions ={
     title: "Interpolation Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -18,15 +18,15 @@ export default class InterpolationClass extends React.Component {
   startAnimation = () => {
     Animated.parallel([
       Animated.timing(this.state.animation, {
-        toValue: 1,
-        duration:1500
-      }),
-      Animated.timing(this.state.rotateAnim, {
-        toValue: 1,
-        duration: 1000  
-      })
-    ]).start()
-  }
+          toValue: 1,
+          duration:1500
+      }).start(()=>{
+          Animated.timing(this.state.animation, {
+              toValue: 0,
+              duration: 1500
+          }).start()
+      });
+  };
 
   startAnimationExtra = () => {
     Animated.timing(this.state.animationExtra, {
@@ -44,12 +44,12 @@ export default class InterpolationClass extends React.Component {
       const boxInterpolation = this.state.animation.interpolate({
           inputRange: [0, 1],
           outputRange: ["hsla(341, 63%, 32%, 1)", "hsla(214, 82%, 13%, 1)"]
-      })
+      });
 
       const colorViewInterpolation = this.state.animation.interpolate({
           inputRange: [0, 1],
           outputRange: ["hsla(214, 82%, 13%, 1)", "hsla(341, 63%, 32%, 1)"]
-      })
+      });
 
       // const rotateInterpolate = this.state.rotateAnim.interpolate({
       //   inputRange: [0, 1],
@@ -68,11 +68,11 @@ export default class InterpolationClass extends React.Component {
 
       const boxAnimatedStyle={
         backgroundColor: boxInterpolation
-      }
+      };
 
       const colorAnimatedStyle = {
         backgroundColor: colorViewInterpolation
-      }
+      };
 
       const animationExtraInterpolate = this.state.animationExtra.interpolate({
         inputRange: [1, 2],
@@ -127,4 +127,4 @@ const styles = StyleSheet.create({
     width: 150,
     marginBottom:20
   }
-})
+});

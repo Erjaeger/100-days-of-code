@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class TranslateClass extends React.Component {
   static navigationOptions ={
     title: "Translate Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -21,7 +21,7 @@ export default class TranslateClass extends React.Component {
     }).start(() => {
       this.state.animation.setValue(0)
     })
-  }
+  };
 
   render(){
     const animatedStyle = {
@@ -30,7 +30,7 @@ export default class TranslateClass extends React.Component {
             translateY: this.state.animation
           }
         ]
-    }
+    };
 
     return(
       <View style={styles.container}>
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: "#851E3E"
   }
-})
+});

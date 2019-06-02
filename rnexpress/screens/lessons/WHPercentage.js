@@ -4,7 +4,7 @@ import { Animated, TouchableWithoutFeedback, StyleSheet, View } from 'react-nati
 export default class WHPercentageClass extends React.Component {
   static navigationOptions ={
     title: "WHPercentage Lesson"
-  }
+  };
 
   constructor(props){
     super(props);
@@ -23,18 +23,18 @@ export default class WHPercentageClass extends React.Component {
               duration: 1500
           }).start()
       });
-  }
+  };
 
   render(){
       const boxInterpolation = this.state.animation.interpolate({
           inputRange: [0, 1],
           outputRange: ["40%", "90%"]
-      })
+      });
 
       const boxAnimatedStyle = {
         width: boxInterpolation,
         height: boxInterpolation
-      }
+      };
 
     return(
       <Animated.View>
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
     width: "40%",
     backgroundColor:"#851E3E"
   }
-})
+});
