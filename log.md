@@ -126,6 +126,16 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 19: June 6, Thursday
+
+**Today's Progress**: Try to recreat the head moving effect of Facebook messenger 
+
+**Thoughts** Next time I must think about the animations before jump in right directly
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+
 
 
 

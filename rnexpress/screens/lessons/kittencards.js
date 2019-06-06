@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated, Dimensions, TouchableWithoutFeedback, PanResponder, StyleSheet, Text, View } from 'react-native';
+import { Animated, Dimensions, TouchableWithoutFeedback, TouchableOpacity, PanResponder, StyleSheet, Text, View } from 'react-native';
+import clamp from "clamp"
 
 import Cat1 from "../../assets/imgs/cat1.jpeg";
 import Cat2 from "../../assets/imgs/cat2.jpeg";
@@ -53,9 +54,65 @@ export default class AnimatedFunctionsClass extends React.Component {
           dy: this.state.animation.y
         }]),
       onPanResponderRelease: (e, {dx, vx, vy}) => {
-        
+        let velocity;
+
+        if(vx >= 0){
+          velocity = clamp(vx, 3, 5);
+        } else if (vx < 0){
+          velocity = clamp(Math.abs(vx), 3, 5) * -1;
+        }
+
+        if(Math.abs(dx) > SWIPE_THRESHOLD) {
+          Animated.decay(this.state.animation, {
+            velocity: {x: velocity, y: vy},
+            deceleration: 0.98
+          }).start(this.transitionNext);
+        } else {
+          Animated.spring(this.state.animation, {
+            toValue: {
+              x:0, y:0
+            },
+            friction: 4
+          }).start();
+        }
       }
     })
+  }
+
+  transitionNext = () => {
+    Animated.parallel([
+      Animated.timing(this.state.opacity, {
+        toValue: 0,
+        duration: 300
+      }),
+      Animated.spring(this.state.next, {
+        toValue:1,
+        friction:4
+      })
+    ]).start(()=>{
+      this.setState((state)=>{
+        return {
+          items: state.items.slice(1)
+        }
+      }, () => {
+        this.state.next.setValue(0.9);
+        this.state.opacity.setValue(1);
+        this.state.animation.setValue({x:0, y:0})
+      })
+    })
+    
+  }
+
+  handleNo = () => {
+    Animated.timing(this.state.animation.x, {
+      toValue: -SWIPE_THRESHOLD
+    }).start(this.transitionNext);
+  }
+
+  handleYes = () => {
+    Animated.timing(this.state.animation.x, {
+      toValue: SWIPE_THRESHOLD
+    }).start(this.transitionNext);
   }
 
   render(){
@@ -88,6 +145,39 @@ export default class AnimatedFunctionsClass extends React.Component {
       opacity
     }
 
+    const yesOpacity = animation.x.interpolate({
+      inputRange: [0, 150],
+      outputRange: [0, 1]
+    });
+
+    const yesScale = animation.x.interpolate({
+      inputRange: [0, 150],
+      outputRange: [0.5, 1],
+      extrapolate: "clamp"
+    });
+
+    const animatedYupStyles = {
+      transform: [{ scale: yesScale }, { rotate: "-30deg"}],
+      opacity: yesOpacity
+    }
+
+    const noOpacity = animation.x.interpolate({
+      inputRange: [-150, 0],
+      outputRange: [1, 0]
+    });
+
+    const noScale = animation.x.interpolate({
+      inputRange: [-150, 0],
+      outputRange: [1, 0.5],
+      extrapolate: "clamp"
+    });
+
+    const animatedNopeStyles = {
+      transform: [{ scale: noScale }, { rotate: "30deg"}],
+      opacity: noOpacity
+    }
+
+
     return(
         <View style={styles.container}>
           <View style={styles.top}>
@@ -114,11 +204,28 @@ export default class AnimatedFunctionsClass extends React.Component {
                     <View style={styles.lowerText}>
                       <Text>{text}</Text>
                     </View>
+
+                    {isLastItem && 
+                      <Animated.View style={[styles.nope, animatedNopeStyles]}>
+                        <Text style={styles.nopeText}>Nope !</Text>
+                      </Animated.View>}
+
+                    
+                    {isLastItem && 
+                    <Animated.View style={[styles.yup, animatedYupStyles]}>
+                      <Text style={styles.yupText}>Yup !</Text>
+                    </Animated.View>}
                   </Animated.View>
               )
             })
           }
           <View style={styles.buttonBar}>
+            <TouchableOpacity onPress={this.handleNo} style={[styles.button, styles.nopeButton]}>
+              <Text style={styles.nopeText}>NO</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.handleYes} style={[styles.button, styles.yupButton]}>
+              <Text style={styles.yupText}>YES</Text>
+            </TouchableOpacity>
           </View>
         </View>
     );
@@ -165,5 +272,54 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFF",
     padding: 5
+  },
+  button: {
+    marginHorizontal: 10,
+    padding: 20,
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowOpacity: 0.3,
+    shadowOffset: {x:0, y:0},
+    shadowRadius: 5,
+    elevation:2,
+    borderWidth: 1,
+    backgroundColor:"white"
+  },
+  yupButton: {
+    borderColor: "green",
+  },
+  nopeButton:{
+    borderColor: "red",
+  },
+
+  yup: {
+    borderColor: "green",
+    borderWidth: 2,
+    position:"absolute",
+    padding: 20,
+    borderRadius: 5,
+    top: 20,
+    left: 20,
+    backgroundColor: "#FFFFFF"
+  },
+  yupText: {
+    fontSize: 16,
+    color:'green'
+  },
+  nope: {
+    borderColor: "red",
+    borderWidth: 2,
+    position:"absolute",
+    padding: 20,
+    borderRadius: 5,
+    top: 20,
+    right: 20,
+    backgroundColor: "#FFFFFF"
+  },
+  nopeText: {
+    fontSize: 16,
+    color: "red"
   }
+
 });

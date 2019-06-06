@@ -4,6 +4,7 @@ import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import IndexExercicesScreen from './screens/exercices/indexExercices';
 import IndexLessonsScreen from './screens/lessons/indexLessons';
 import KittenCards from './screens/lessons/kittencards';
+import DragHead from './screens/exercices/draghead';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -22,11 +23,11 @@ class HomeScreen extends React.Component {
       Home: HomeScreen,
       Lessons: IndexLessonsScreen,
       Exercices: IndexExercicesScreen,
-      KittenCards
+      DragHead
     },
     {
       //initialRouteName: "Home"
-      initialRouteName: "KittenCards"
+      initialRouteName: "DragHead"
     }
   );
 
