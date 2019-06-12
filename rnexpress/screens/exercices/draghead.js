@@ -10,63 +10,75 @@ export default class DragHeadClass extends React.Component {
     super(props);
     this.state = {
         nbrOfHeads:2,
-        dragValue: new Animated.ValueXY(0),
-        animations: []
+        firstHead: new Animated.ValueXY(0),
+        secondHead: new Animated.ValueXY(0)
     }
 
-    this.state.dragValue.addListener((value)=>{
-        Animated.stagger(500, [
-            this.state.animations.forEach((a)=>{
-                return Animated.timing()
-            })
-        ]);
+    this.state.firstHead.addListener((value)=>{
+        console.log(value)
+        Animated.sequence([
+            Animated.delay(30),
+            Animated.parallel([
+                Animated.timing(this.state.secondHead.x, {
+                    toValue: value.x,
+                    duration: 0,
+                    useNativeDriver: true
+                }),
+                Animated.timing(this.state.secondHead.y, {
+                    toValue: value.y,
+                    duration: 0,
+                    useNativeDriver: true
+                })
+            ])
+        ]).start();
     });
-  }
 
-  
-
-  componentDidMount = () => {
-    let newAnimations= []
-    for(let i = 0; i<this.state.nbrOfHeads; i++){
-        newAnimations.push(new Animated.ValueXY(0));
-    }
-
-    this.setState({animations: newAnimations})
-
-    this._panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
-        onMoveShouldSetPanResponder: () => true,
-        onPanResponderGrant: () => {
-            this.state.dragValue.extractOffset();
-        },  
-        onPanResponderMove: Animated.event([null, {
-            dx: this.state.dragValue.x,
-            dy: this.state.dragValue.y
-        }])
-    })
+  this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+          this.state.firstHead.extractOffset();
+      },
+      onPanResponderMove: Animated.event([null, {
+          dx: this.state.firstHead.x,
+          dy: this.state.firstHead.y
+      }])
+  })
   }
 
   generateHeads = () => {
       let dom = []
-      for(let i = 0; i<this.state.nbrOfHeads; i++){
-        if(!this.state.animations[i]) return;
+
+      const transformSecondAnimatedStyle = {
+          transform: [
+              {
+                  translateX: this.state.secondHead.x
+              },
+              {
+                  translateY: this.state.secondHead.y
+              }
+          ]
+      }
+
+      dom.push(<Animated.View style={[styles.head, transformSecondAnimatedStyle]} key={1}>
+          <Image source={require('../../assets/imgs/cat1.jpeg')} style={styles.imageHead} />
+      </Animated.View>)
+
         const transformAnimatedStyle = {
             transform: [
                 {
-                    translateX: this.state.dragValue.x
+                    translateX: this.state.firstHead.x
                 },
                 {
-                    translateY: this.state.dragValue.y
+                    translateY: this.state.firstHead.y
                 }
             ]
         }
 
-        const panhandlers = i === this.state.animations.length-1 ? this._panResponder.panHandlers : {};
-
-        dom.push(<Animated.View style={[styles.head, transformAnimatedStyle]} key={i} {...panhandlers}>
+        dom.push(<Animated.View style={[styles.head, transformAnimatedStyle]} key={2} {...this._panResponder.panHandlers}>
                 <Image source={require('../../assets/imgs/cat1.jpeg')} style={styles.imageHead} />
                 </Animated.View>)
-      }
+
       return dom;
   }
 
