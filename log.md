@@ -135,6 +135,15 @@
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)
 
+### Day 20: June 12, Wednesday
+
+**Today's Progress**: Followed the head tutorial because I was having some trouble with it
+
+**Thoughts** I was some good things on my head test
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
 
 
 
