@@ -16,6 +16,7 @@ import CombiningAnimations from './combininganimations'
 import PanResponder from './panresponder'
 import KittenCards from './kittencards'
 import DragHead from './draghead'
+import D3Interpolate from './d3interpolate'
 
 export default createStackNavigator({
     Home,
@@ -34,7 +35,8 @@ export default createStackNavigator({
     CombiningAnimations,
     PanResponder,
     KittenCards,
-    DragHead
+    DragHead,
+    D3Interpolate
 },
 {
   initialRouteName: "Home"

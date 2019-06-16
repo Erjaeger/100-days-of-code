@@ -139,7 +139,16 @@
 
 **Today's Progress**: Followed the head tutorial because I was having some trouble with it
 
-**Thoughts** I was some good things on my head test
+**Thoughts** I did some good things on my head test
+
+**Link(s) to work**
+1. [React Native Navigation](https://reactnativeanimations.com)
+
+### Day 22: June 16, Sunday
+
+**Today's Progress**: Learning about SVG on react native and how animate them with D3-interpolate
+
+**Thoughts** It's not working and a little tired !
 
 **Link(s) to work**
 1. [React Native Navigation](https://reactnativeanimations.com)

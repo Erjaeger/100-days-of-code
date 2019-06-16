@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import IndexExercicesScreen from './screens/exercices/indexExercices';
 import IndexLessonsScreen from './screens/lessons/indexLessons';
-import DragHead from './screens/lessons/draghead';
+import D3Interpolate from './screens/lessons/d3interpolate';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -22,11 +22,11 @@ class HomeScreen extends React.Component {
       Home: HomeScreen,
       Lessons: IndexLessonsScreen,
       Exercices: IndexExercicesScreen,
-      DragHead: DragHead
+      D3Interpolate: D3Interpolate
     },
     {
       //initialRouteName: "Home"
-      initialRouteName: "DragHead"
+      initialRouteName: "D3Interpolate"
     }
   );
 

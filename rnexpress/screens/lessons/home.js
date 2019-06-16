@@ -54,6 +54,9 @@ export default class IndexLessonsScreen extends React.Component {
         <View style={{marginTop:10}}>
           <Button title={"Drag Head"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('DragHead')}}/>
         </View>
+        <View style={{marginTop:10}}>
+          <Button title={"D3 Interpolate"} color="#651E3E" onPress={()=>{this.props.navigation.navigate('D3Interpolate')}}/>
+        </View>
       </ScrollView>);
   }
 }
